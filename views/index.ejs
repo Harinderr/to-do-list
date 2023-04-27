@@ -1,0 +1,37 @@
+
+<%- include("header") -%>
+
+ <div class="box" id="heading" >
+
+    <h1> <%= dayis %></h1>
+ </div>
+
+
+     <div class="box">
+        <% newitem.forEach( val => { %>
+            <form action="/delete" method="post">
+                  <div class="listitem">
+            <div class="item">
+                <input type="checkbox">
+            <p>  <%= val.name %></p>
+        </div>
+            <div class="remove">
+                
+                 <button class="rmbtn" type="submit" name="submit" value="<%= val._id %>">
+                        <i id="rm" class="fa-solid fa-xmark fa-xl"></i>
+                    </button>
+             <input type="hidden" name="listname" value="<%=dayis%>">
+               
+            </div>
+        </div>
+    </form>
+                  <% })%>
+                  <form class="addclass" action="/" method="post">
+                    <input type="text" name="newitem" placeholder="New Item" required>
+                    <button id="addbtn" type="submit" name="plusbutton" value="<%= dayis %>">+</button>
+               
+                </form>
+             
+     </div>   
+       
+     <%- include("footer") -%>
