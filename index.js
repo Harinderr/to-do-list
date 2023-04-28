@@ -162,5 +162,5 @@ app.get("/lists/:customlist", function (req, res) {
 });
 
 app.listen(PORT, function () {
-  console.log("File is running on port 3000");
+  console.log("File is running on port" + PORT);
 });
