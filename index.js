@@ -5,13 +5,14 @@ const _ = require("lodash");
 const date = require(__dirname + "/date.js");
 const mongoose = require("mongoose");
 const app = express();
-const PORT = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 app.use(express.static("public"));
 
 app.set("view engine", "ejs");
 app.use(bodyparser.urlencoded({ extended: true }));
 
 // database connection and task
+console.log(process.env.MONGO_PASS)
 async function connectToDB(){
 try {
  await mongoose.connect(process.env.MONGO_PASS, {
@@ -161,6 +162,6 @@ app.get("/lists/:customlist", function (req, res) {
 
 });
 
-app.listen(PORT, function () {
+app.listen(port, function () {
   console.log("File is running on port" + port);
 });
