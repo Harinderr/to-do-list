@@ -14,7 +14,7 @@ app.use(bodyparser.urlencoded({ extended: true }));
 // database connection and task
 async function connectToDB(){
 try {
- await mongoose.connect(`mongodb+srv://Sunny:${process.env.MONGO_PASS}@cluster0.4ycqhnp.mongodb.net/todolistDB`, {
+ await mongoose.connect(process.env.MONGO_PASS, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -162,5 +162,5 @@ app.get("/lists/:customlist", function (req, res) {
 });
 
 app.listen(PORT, function () {
-  console.log("File is running on port" + PORT);
+  console.log("File is running on port" + port);
 });
